@@ -4,13 +4,13 @@
 
 ## 畫面呈現
 
-![image](https://github.com/rose830115/restaurant-list/tree/main/publicimg/homePage.png)
+![image](https://github.com/rose830115/restaurant-list/blob/main/public/img/homePage.png)
 
-![image](https://github.com/rose830115/restaurant-list/tree/main/public/img/restaurantInfo.png)
+![image](https://github.com/rose830115/restaurant-list/blob/main/public/img/restaurantInfo.png)
 
-![image](https://github.com/rose830115/restaurant-list/tree/main/public/img/searchFunction.png)
+![image](https://github.com/rose830115/restaurant-list/blob/main/public/img/searchFunction.png)
 
-![image](https://github.com/rose830115/restaurant-list/tree/main/public/img/searchError.png)
+![image](https://github.com/rose830115/restaurant-list/blob/main/public/img/searchError.png)
 
 ## 功能描述
 
