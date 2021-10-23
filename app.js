@@ -9,7 +9,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 app.get('/', (req, res) => {
-  res.send('server test os restaurant list')
+  res.render('index')
 })
 
 
