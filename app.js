@@ -21,7 +21,7 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
 
 app.get('/search', (req, res) => {
   if (!req.query.keyword) {
-    res.redirect("/")
+    res.redirect('/')
   }
   const keyword = req.query.keyword.trim().toLowerCase()
   const restaurants = restaurantList.filter(restaurant =>
