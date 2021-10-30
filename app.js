@@ -5,23 +5,27 @@ const exphbs = require('express-handlebars')
 const port = 3000
 const db = mongoose.connection
 const restaurantList = require('./restaurant.json').results
+const Restaurant = require('./models/restaurant')
 
 mongoose.connect('mongodb://localhost/restaurant-list')
 
-db.on('error',()=>{
+db.on('error', () => {
   console.log('mongodb error!')
 })
 
-db.once('open',()=>{
+db.once('open', () => {
   console.log('mongodb connected!')
 })
 
 app.use(express.static('public'))
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
 
 app.get('/', (req, res) => {
-  res.render('index', { restaurants: restaurantList })
+  return Restaurant.find()
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
 })
 
 app.get('/restaurants/:restaurant_id', (req, res) => {
