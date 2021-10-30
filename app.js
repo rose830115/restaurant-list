@@ -28,11 +28,12 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
-app.get('/restaurants/:restaurant_id', (req, res) => {
-  const restaurant = restaurantList.find(
-    restaurant => restaurant.id.toString() === req.params.restaurant_id
-  )
-  res.render('show', { restaurant })
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then((restaurant) => res.render('show', { restaurant }))
+    .catch(error => console.error(error))
 })
 
 app.get('/search', (req, res) => {
