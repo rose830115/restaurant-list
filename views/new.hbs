@@ -1,0 +1,57 @@
+<h1 class="mb-1 restaurant-show-title">新增餐廳</h1>
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-md-10 col-12 mx-auto">
+      <form action="/restaurants" method="POST">
+        <div class="form-group">
+          <label for="restaurantName">餐廳名稱<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="restaurantName" name="name"required>
+        </div>
+        <div class="form-group">
+          <label for="restaurantEnName">Restaurant Name<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="restaurantEnName" name="name_en"required>
+        </div>
+        <div class="form-group row">
+          <label for="category" class="col-sm-2 col-form-label">類別</label>
+          <div class="col-sm-10">
+            <input list="categories" class="form-control" name="category" id="category" placeholder="餐廳類別" required>
+            <datalist id="categories">
+              <option>中東料理</option>
+              <option>日本料理</option>
+              <option>義式餐廳</option>
+              <option>美式</option>
+              <option>酒吧</option>
+              <option>咖啡</option>
+            </datalist>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="location">餐廳地址<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="location" name="location"required>
+        </div>
+        <div class="form-group">
+          <label for="phone">餐廳電話<span class="text-danger">*</span></label>
+          <input type="tel"class="form-control" id="phone" name="phone"required>
+        </div>
+        <div class="form-group">
+          <label for="description">餐廳描述<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="description" name="description"required>
+        </div>
+        <div class="form-group">
+          <label for="image">餐廳照片<span class="text-danger">*</span></label>
+          <input type="url" class="form-control" id="image" name="image"required>
+        </div>
+        <div class="form-group">
+          <label for="rating">給個分數吧<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="rating" name="rating"required>
+        </div>
+        <div class="form-group">
+          <label for="google_map" class="form-label">Google地圖連結<span class="text-danger">*</span></label>
+          <input type="url" class="form-control" id="google_map" name="google_map" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+
+  </div>
+</div>
