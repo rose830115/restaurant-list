@@ -40,15 +40,15 @@ app.post('/restaurants', (req, res) => {
   const newRestaurant = req.body
 
   return Restaurant.create({
-    name : newRestaurant.name,
-    name_en : newRestaurant.name_en,
-    category : newRestaurant.category,
-    image : newRestaurant.image,
-    location : newRestaurant.location,
-    phone : newRestaurant.phone,
-    google_map : newRestaurant.google_map,
-    rating : newRestaurant.rating,
-    description : newRestaurant.description
+    name: newRestaurant.name,
+    name_en: newRestaurant.name_en,
+    category: newRestaurant.category,
+    image: newRestaurant.image,
+    location: newRestaurant.location,
+    phone: newRestaurant.phone,
+    google_map: newRestaurant.google_map,
+    rating: newRestaurant.rating,
+    description: newRestaurant.description
   })
     .then(() => res.redirect('/'))
     .catch(error => console.error(error))
@@ -63,6 +63,37 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console.error(error))
 })
 
+//R進入修改表單
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('edit', { restaurant }))
+    .catch(error => console.error(error))
+})
+
+//U修改一家餐廳資料
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  const updatedRestaurant = req.body
+
+  return Restaurant.findById(id)
+    .then(restaurant => {
+      restaurant.name = updatedRestaurant.name
+      restaurant.name_en = updatedRestaurant.name_en
+      restaurant.category = updatedRestaurant.category
+      restaurant.image = updatedRestaurant.image
+      restaurant.location = updatedRestaurant.location
+      restaurant.phone = updatedRestaurant.phone
+      restaurant.google_map = updatedRestaurant.google_map
+      restaurant.rating = updatedRestaurant.rating
+      restaurant.description = updatedRestaurant.description
+
+      return restaurant.save()
+    })
+    .then(() => res.redirect(`/restaurants/${id}`))
+    .catch(error => console.error(error))
+})
 
 
 app.get('/search', (req, res) => {
