@@ -104,6 +104,7 @@ app.post('/restaurants/:id/delete', (req, res) => {
     .catch(error => console.error(error))
 })
 
+//搜尋功能
 app.get('/search', (req, res) => {
   if (!req.query.keyword) {
     res.redirect('/')

@@ -37,21 +37,21 @@
         </div>
         <div class="form-group">
           <label for="description">餐廳描述<span class="text-danger">*</span></label>
-          <input type="text" class="form-control" id="description" name="description"
-            value="{{ restaurant.description }}" required>
+          <textarea id="description" name="description" class="form-control" rows="3"
+            required>{{ restaurant.description }}</textarea>
         </div>
         <div class="form-group">
           <label for="image">餐廳照片<span class="text-danger">*</span></label>
           <input type="url" class="form-control" id="image" name="image" value="{{ restaurant.image }}" required>
         </div>
         <div class="form-group">
-          <label for="rating">給個分數吧<span class="text-danger">*</span></label>
-          <input type="text" class="form-control" id="rating" name="rating" value="{{ restaurant.rating}}" required>
-        </div>
-        <div class="form-group">
           <label for="google_map" class="form-label">Google地圖連結<span class="text-danger">*</span></label>
           <input type="url" class="form-control" id="google_map" name="google_map" value="{{ restaurant.google_map}}"
             required />
+        </div>
+        <div class="form-group">
+          <label for="rating">給個分數吧<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="rating" name="rating" value="{{ restaurant.rating}}" required>
         </div>
         <button type="submit" class="btn btn-primary">Save</button>
       </form>
