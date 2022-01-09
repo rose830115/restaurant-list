@@ -24,9 +24,12 @@
         {{#if isAuthenticated}}{{user.name}}'s{{/if}}
         餐廳名單
       </a>
-      {{#if isAuthenticated}}
-      <a href="/users/logout" class="btn btn-primary btn-blockt">Log out</a>
-      {{/if}}
+      <div class="text-right px-5">
+        {{#if isAuthenticated}}
+        <a href="/restaurants/new" class="btn btn-primary ">新增餐廳</a>
+        <a href="/users/logout" class="btn btn-primary btn-blockt">Log out</a>
+        {{/if}}
+      </div>
       </a>
     </div>
   </nav>

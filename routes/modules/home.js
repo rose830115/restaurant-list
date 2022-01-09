@@ -4,7 +4,8 @@ const Restaurant = require('../../models/restaurant')
 
 //R瀏覽全部所有餐廳
 router.get('/', (req, res) => {
-  return Restaurant.find()
+  const userId = req.user._id
+  return Restaurant.find({ userId })
     .lean()
     .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.error(error))
@@ -37,7 +38,7 @@ router.get('/search', (req, res) => {
       break
   }
 
-  Restaurant.find()
+  Restaurant.find({ userId })
     .lean()
     .sort(nowSort)
     .then(restaurants => {
